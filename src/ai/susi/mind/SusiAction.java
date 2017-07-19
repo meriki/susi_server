@@ -102,7 +102,7 @@ public class SusiAction {
      * @param answers
      * @return the action
      */
-    public static JSONObject answerAction(String[] answers) {
+    public static JSONObject answerAction(String... answers) {
         JSONArray phrases = new JSONArray();
         for (String answer: answers) phrases.put(answer.trim());
         JSONObject json = new JSONObject()
@@ -275,9 +275,9 @@ public class SusiAction {
         return this.json.has(attr) ? this.json.getInt(attr) : 0;
     }
 
-    final static Pattern visible_assignment = Pattern.compile("(?:(?:.*)[\\?\\!\\h,\\.;-])+([^\\^]+?)>([_a-zA-Z0-9]+)(?:[\\?\\!\\h,\\.;-](?:.*))?+");
-    final static Pattern blind_assignment = Pattern.compile("(?:.*)\\^(.*?)\\^>([_a-zA-Z0-9]+)(?:[\\?\\!\\h,\\.;-](?:.*))?+");
-    final static Pattern self_referrer = Pattern.compile(".*`([^`]*?)`.*");
+    final static Pattern visible_assignment = Pattern.compile("(?:(?:.*?)[\\?\\!\\h,\\.;-])+([^\\^]+?)>([_a-zA-Z0-9]+)(?:[\\?\\!\\h,\\.;-](?:.*?))?+");
+    final static Pattern blind_assignment = Pattern.compile("(?:.*?)\\^(.*?)\\^>([_a-zA-Z0-9]+)(?:[\\?\\!\\h,\\.;-](?:.*?))?+");
+    final static Pattern self_referrer = Pattern.compile(".*?`([^`]*?)`.*?");
     
     /**
      * Action descriptions are templates for data content. Strings may refer to arguments from
